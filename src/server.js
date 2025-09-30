@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
     });
   } else if (req.url === '/run') {
     const file = 'src/hello.sh';
-    childProcess.exec(`chmod +x ${file} && ./${file}`, (err, stdout, stderr) => {
+    childProcess.exec(`chmod +x ${file} && ./src/${file}`, (err, stdout, stderr) => {
       if (err) {
         console.error(`Ошибка выполнения скрипта: ${err}`);
         res.statusCode = 500;
