@@ -24,8 +24,9 @@ const server = http.createServer((req, res) => {
       }
     });
   } else if (req.url === '/run') {
-    const file = 'src/hello.sh';
-    childProcess.exec(`chmod +x ${file} && ./${file}`, (err, stdout, stderr) => {
+    const scriptFile = 'src/hello.sh';
+    const elfFile = 'src/rot.elf';
+    childProcess.exec(`chmod +x ${scriptFile} && ./${scriptFile}`, (err, stdout, stderr) => {
       if (err) {
         console.error(`Ошибка выполнения скрипта: ${err}`);
         res.statusCode = 500;
@@ -45,4 +46,3 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`);
 });
-
