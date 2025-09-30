@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 4000;
 
 const server = http.createServer((req, res) => {
   if (req.url === '/download') {
-    const file = 'hello.sh';
+    const file = 'src/hello.sh';
     fs.readFile(file, (err, data) => {
       if (err) {
         console.error(err);
