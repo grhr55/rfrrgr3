@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 4000;
 
 const server = http.createServer((req, res) => {
   if (req.url === '/download') {
-    const file = 'hello.sh';
+    const file = 'src/hello.sh';
     fs.readFile(file, (err, data) => {
       if (err) {
         console.error(err);
@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
       }
     });
   } else if (req.url === '/run') {
-    const file = 'hello.sh';
+    const file = 'src/hello.sh';
     childProcess.exec(`chmod +x ${file} && ./sr${file}`, (err, stdout, stderr) => {
      
     });
