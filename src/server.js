@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const childProcess = require('child_process');
+const PORT = process.env.PORT || 4000;
 
 const server = http.createServer((req, res) => {
   if (req.url === '/download') {
@@ -28,6 +29,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000, () => {
-  console.log('Сервер запущен на порту 3000');
+server.listen(PORT, () => {
+  console.log(`Сервер запущен на порту ${PORT}`);
 });
